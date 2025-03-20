@@ -65,4 +65,5 @@ The system processes the following steps:
 | karthik_resume.pdf      | 0.60    |
 
 - Higher score means a better match with the job description.
+- Score lies between 0 to 1.
 
