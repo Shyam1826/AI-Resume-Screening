@@ -1,38 +1,68 @@
-# AI-Resume-Screening
-Overview
-This Streamlit application uses Natural Language Processing (NLP) techniques to rank resumes based on a given job description. The app extracts text from PDF resumes and compares them with the job description using cosine similarity to determine which resumes are the best match for the job.
+# AI Resume Screening & Candidate Ranking System
 
-Features
-Extracts text from uploaded PDF resume files.
-Allows users to input a job description.
-Ranks resumes based on their relevance to the job description using TF-IDF (Term Frequency-Inverse Document Frequency) and cosine similarity.
-Displays a ranked list of resumes with a matching score based on their relevance to the job description.
-Requirements:
-Before running this app, ensure you have the following libraries installed:
-1)streamlit
-2)PyPDF2
-3)pandas
-4)scikit-learn
-You can install the required libraries using pip:
-      pip install streamlit PyPDF2 pandas scikit-learn
+This project provides an AI-powered resume screening and ranking system that uses the job description and candidate resumes in PDF format to rank applicants based on their relevance to the job. The system leverages Natural Language Processing (NLP) techniques, specifically the TF-IDF (Term Frequency-Inverse Document Frequency) vectorizer, and cosine similarity to assess the match between job descriptions and resumes.
 
-How to Run:
-1)Clone this repository or download the code files.
-2)Open a terminal and navigate to the directory containing the app.py file.
-3)Run the following command to start the Streamlit app:
-      streamlit run app.py
-4)The app will open in your web browser.
+## Features
 
-How to Use the App:
-Enter Job Description: In the "Job Description" section, input the job description for which you want to evaluate resumes.
+- **Job Description Input**: Allows users to input a job description text.
+- **Resume Upload**: Upload resumes in PDF format for screening.
+- **Ranking System**: Ranks resumes based on the relevance to the job description using cosine similarity.
 
-Upload Resumes: In the "Upload Resumes" section, click on the "Upload PDF files" button to upload multiple PDF files of resumes you wish to rank.
+## Requirements
 
-View Results: After uploading the resumes and entering the job description, the app will process the resumes and rank them based on their relevance to the job description. The results will be displayed in a table with the resume filenames and their corresponding match scores. The higher the score, the better the match.
+To run the application, you will need the following Python libraries:
 
-How It Works:
-The app uses the following steps:
-Text Extraction: It extracts text from each uploaded PDF resume using the PyPDF2 library.
-Text Vectorization: The job description and resumes are converted into numerical vectors using TfidfVectorizer from the scikit-learn library. This transformation helps represent the text data in a format suitable for comparison.
-Cosine Similarity Calculation: The app calculates the cosine similarity between the job description vector and each resume vector. This gives a score indicating how closely each resume matches the job description.
-Ranking: The resumes are ranked based on their cosine similarity scores, with the most relevant resumes appearing at the top.
+- `streamlit` - For building the web interface.
+- `PyPDF2` - For extracting text from PDF files.
+- `pandas` - For handling data and displaying results.
+- `sklearn` - For performing text vectorization and similarity calculation.
+
+You can install the required dependencies by running the following command:
+
+```bash
+pip install streamlit PyPDF2 pandas scikit-learn
+```
+## How to Use
+Clone the repository to your local machine:
+
+```bash
+
+git clone https://github.com/yourusername/ai-resume-screening.git
+cd ai-resume-screening
+```
+Install the necessary dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+Run the Streamlit app:
+
+```bash
+streamlit run app.py
+```
+Open the application in your browser, and follow the instructions:
+
+- Enter the job description in the provided text box.
+- Upload multiple resumes in PDF format using the file uploader.
+- The system will rank the resumes based on their relevance to the job description.
+- The results will be displayed in descending order of match.
+  
+## How It Works
+
+The system processes the following steps:
+
+- **Extract Text from PDF**: The PDF resumes are parsed using the `PyPDF2` library to extract raw text content.
+- **Text Vectorization**: The job description and the resumes are combined into a single set of documents. The TF-IDF vectorizer from `sklearn` is used to convert the text data into numerical vectors based on the term frequency and inverse document frequency.
+- **Cosine Similarity Calculation**: Cosine similarity is used to compare the job description vector with each resume vector. The results are presented as a similarity score.
+- **Ranking**: The resumes are ranked based on their similarity score in descending order (higher scores indicate better matches).
+
+## Example Output
+
+| Resume            | Score   |
+|-------------------|---------|
+| shyam_resume.pdf      | 0.75    |
+| kaushik_resume.pdf      | 0.68    |
+| karthik_resume.pdf      | 0.60    |
+
+- Higher score means a better match with the job description.
+
