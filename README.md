@@ -51,7 +51,7 @@ Open the application in your browser, and follow the instructions:
 
 The system processes the following steps:
 
-- **Extract Text from PDF**: The PDF resumes are parsed using the `PyPDF2` library to extract raw text content.
+- **Extract Text from PDF**: The PDF resumes are analyze using the `PyPDF2` library to extract raw text content.
 - **Text Vectorization**: The job description and the resumes are combined into a single set of documents. The TF-IDF vectorizer from `sklearn` is used to convert the text data into numerical vectors based on the term frequency and inverse document frequency.
 - **Cosine Similarity Calculation**: Cosine similarity is used to compare the job description vector with each resume vector. The results are presented as a similarity score.
 - **Ranking**: The resumes are ranked based on their similarity score in descending order (higher scores indicate better matches).
